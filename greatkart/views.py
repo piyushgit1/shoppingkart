@@ -1,4 +1,10 @@
 from django.shortcuts import render
-
+from store.models import Product
 def home(request):
-    return render(request, 'index.html')
+
+    categories = Product.objects.all()
+
+    context = {
+        'Products': categories
+    }
+    return render(request, 'index.html', context)
