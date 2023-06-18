@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'category',
     'accounts',
     'store',
-    'cart'
+    'cart',
+    'orders'
 ]
 
 MIDDLEWARE = [
@@ -145,3 +146,18 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 SESSION_COOKIE_SECURE = False  # Set to True if using HTTPS
 SESSION_COOKIE_HTTPONLY = True
 SESSION_ENGINE = 'django.contrib.sessions.backends.db'
+
+from django.contrib.messages import constants as messages
+
+MESSAGE_TAGS = {
+    messages.ERROR: 'danger'
+}
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+EMAIL_HOST = 'smtp.elasticemail.com'
+EMAIL_PORT = 2525
+EMAIL_HOST_USER = 'udemycourseavailable@gmail.com'
+EMAIL_HOST_PASSWORD = 'CD5300533D3AA6CA4689555AAA18BA10E22E'
+EMAIL_USE_TLS = True
+
